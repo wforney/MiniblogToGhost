@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
-using MiniblogToGhost.Miniblog;
-
-namespace MiniblogToGhost.Miniblog
+﻿namespace MiniblogToGhost.Miniblog
 {
+    using System.Collections.Generic;
+
     public class PostAnalysis
     {
-        public int Successes { get; set; }
-
         public int Failures { get; set; }
-
         public List<post> Posts { get; set; }
+        public int Successes { get; set; }
     }
 }
