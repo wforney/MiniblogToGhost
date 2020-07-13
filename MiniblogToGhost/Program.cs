@@ -179,6 +179,7 @@
             };
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool PerformValidation(Options options)
         {
             Logger.Log("Validating...");
@@ -193,7 +194,14 @@
 
             if (!Directory.Exists(options.OutputPath))
             {
-                Directory.CreateDirectory(options.OutputPath);
+                try
+                {
+                    Directory.CreateDirectory(options.OutputPath);
+                }
+                catch
+                {
+                    valid = false;
+                }
             }
 
             Logger.Log(valid ? "OK" : "Failed");
